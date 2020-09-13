@@ -1,4 +1,4 @@
-//exericicio incompleto;
+//juagod ajudou pra caramba nesse aqui, as always pq o cara é brabo
 #include <stdio.h>
 
 float Soma(float A, float B){
@@ -22,41 +22,29 @@ float Multiplicacao(float A, float B){
 }
 
 int main(){
-    char o = ' ', s = ' ';
+    char o, s;
     float A, B;
-    int contador = 0, breaker = 0;
-    while (breaker == 0){
-        if (contador == 0){
-            scanf("%f", &A);
-            scanf("%c", &s);
-            scanf("%f", &B);
-            scanf("%c", &s);
-            scanf("%c", &o);
-            contador++;
+    scanf("%f", &A);
+
+    while (scanf("%f %c", &B, &o) ){
+        s = 0;
+        scanf("%c", &s);
+        if (o == 43) {
+            A = Soma(A, B);
         }
-        else{
-            scanf("%f", &A);
-            scanf("%c", &s);
-            scanf("%c", &o);          
+        else if (o == 45) {
+            A = Subtracao(A, B);
         }
-        switch (o){
-            case '+':
-            Soma(A, B);
-            break;
-
-            case '-':
-            Subtracao(A, B);
-            break;
-
-            case '*':
-            Multiplicacao(A, B);
-            break;
-
-            case '/':
-            Divisao(A, B);
+        else if (o == 47) {
+            A = Divisao(A, B);
+        }
+        else if (o == 42) {
+            A = Multiplicacao(A, B);
+        }
+        if (s != 32) {
             break;
         }
     }
-    printf("%.2f", B);
+    printf("%.2f", A);
     return 0;
 }
