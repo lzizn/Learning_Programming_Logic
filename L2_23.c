@@ -1,22 +1,29 @@
-#include <iostream>
+#include <stdio.h>
 
 int main(){
-	char a;
-	int i, cont = 0;
-	//printf("RESP:");
-	for (i = 0; i < 100; i++){
-		cin >> a;
-		if ((a == '(')&& (cont == 0)){
+	
+	char a, anterior;
+	int i = 0, cont = 0, mark = 0;
+	printf("RESP:");
+	for (i; i < 100; i++){
+		scanf("%c", &a);
+		if (a == '('){
+			if (cont == 0){
+				cont++;
+				continue;
+			}
 			cont++;
-			continue;
 		}
-		else if (cont > 0 && (a != '.')){
-			//printf("%c", a);
-			cout << a;
+		if (a == ')'){
+			cont--;
 		}
-		else{
+		if (a == '.' && anterior == ')'){
 			break;
 		}
+		if (cont > 0){
+			printf("%c", a);
+		}
+		anterior = a;
 	}
 	return 0;
 }
