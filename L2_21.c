@@ -1,36 +1,41 @@
 //exercicio nao finalizado
 #include <stdio.h>
-#include <string.h>
+#include <ctype.h>
 
 int main(){
-    int breaker = 0, quantidade_numeros, i = 0;
-    char frase[200];
+    int jumanji, contador_aspas = 0, breaker = 0, quantidade_numeros, i = 0;
+    char Caractere, Caractere_anterior;
     scanf("%d", &quantidade_numeros);
-    int numeros[quantidade_numeros];
+    char numeros[quantidade_numeros];
     for(i; i < quantidade_numeros; i++){
-        scanf("%d", &numeros[i]);
+        scanf("%c", &numeros[i]);
     }
-    int k = 2;
-    for(k; breaker < 2; k++){
-        scanf("%c", &frase[k]);
-        if (frase[k-1] == '%'){
-            int j = 0;
-            for(j; j < quantidade_numeros; j++){
-                if (frase[k] == j+1){
-                    frase[k] = numeros[j];
+    while(breaker == 0){
+        scanf("%c", &Caractere);
+        if (Caractere == 34){
+            contador_aspas++;
+            if (contador_aspas == 2){
+                break;
+            }
+            continue;
+        }
+        if (Caractere == '%'){
+            Caractere_anterior = '%';
+            continue;
+            
+        }else if(Caractere_anterior == '%'){
+            int i = 0;
+            for(i; i < quantidade_numeros; i++){
+                if (Caractere == i+1){
+                    Caractere = numeros[i+1];
                 }
             }
+            printf("%c", Caractere);
+            Caractere_anterior = 'a';
         }
-        if (frase[k] > quantidade_numeros || frase[k] < '1'){
-            frase[k] = 'E';
-            frase[k+1] = 'R';
-            frase[k+2] = 'R';
-            frase[k+3] = 'O';
+        else{
+            printf("%c", Caractere);
         }
-        if (frase[k] == '"'){
-            breaker++;
-        }
-        printf("%c", frase[k]);
     }
     return 0;
 }
