@@ -1,21 +1,15 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main()
-{
-  int i = 0, j = 0;
-  char n;
-  scanf("%c", &n);
-  printf("RESP:%c", n);
-  while (i == 0)
-  {
-    scanf("%c", &n);
-    if (n == ' '){
+int main(void) {
+  char entrada;
+  scanf("%c",&entrada);
+  printf("RESP:%c",entrada);
+  while(entrada!='.' && entrada!='!' && entrada!='?'){
+    scanf("%c",&entrada);
+    if(entrada == ' '){
+    }else{
+      printf("%c",entrada);
     }
-    else printf("%c", n);
-    if (n == '!') i++;
-    if (n == '?') i++;
-    if (n == '.') i++;
   }
   return 0;
 }
