@@ -5,7 +5,7 @@
 float areaCirculo(float raio);
 float volumeCaixa(float raio, float altura);
 
-float volumeCaixa(float raio, float altura){
+float areaCirculo(float raio){
     return ((raio*raio)*PI);
 }
 
