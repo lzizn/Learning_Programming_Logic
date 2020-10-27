@@ -60,7 +60,7 @@ int main(){
         printf("Nao ha fatores primos.");
         return 0;
     }
-    else if( n > 1 && n <= 40 ){
+    else if( n > 1 && n <= 60 ){
         fib(n);
     }
     return 0;
